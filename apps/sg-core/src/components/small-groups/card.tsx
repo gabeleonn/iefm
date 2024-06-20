@@ -1,6 +1,4 @@
-import { ReactNode } from "react";
-
-export function SmallGroupCard({ children }: { children?: ReactNode }) {
+export function SmallGroupCard() {
   return (
     <div className="flex flex-col p-3 w-[calc(100vw-40px)] bg-background text-text rounded-[20px]">
       <img
