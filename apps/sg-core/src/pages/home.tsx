@@ -1,7 +1,7 @@
-import { withLayout } from "../hocs/with-layout";
+import { withAnimation } from "../hocs/with-animation";
 
-function HomePage() {
+export function HomePage() {
   return <div>Home</div>;
 }
 
-export const Home = withLayout(HomePage);
+export const Home = withAnimation(HomePage);

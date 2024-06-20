@@ -9,7 +9,7 @@ import { NavLink } from "./nav-link";
 
 export function Navigation() {
   return (
-    <nav className="fixed bottom-0 left-0 bg-text rounded-t-xl h-[72px] w-full flex flex-row shadow-2xl p-2">
+    <nav className="z-10 fixed bottom-0 left-0 bg-text rounded-t-xl h-[72px] w-full flex flex-row shadow-2xl p-2">
       <NavLink icon={HomeIcon} text="Inicio" href="/" />
       <NavLink icon={UserGroupIcon} text="Celulas" href="/celulas" />
       <NavLink icon={UserIcon} text="Perfil" href="/perfil" />
