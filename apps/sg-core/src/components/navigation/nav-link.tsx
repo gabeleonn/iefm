@@ -1,4 +1,4 @@
-import { Link, useResolvedPath, useMatch, matchPath } from "react-router-dom";
+import { Link, useResolvedPath, useMatch } from "react-router-dom";
 
 interface NavLinkProps {
   icon: any;
