@@ -1,0 +1,9 @@
+{
+  "name": "@iefm/monolith",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "packageManager": "yarn@3.6.1"
+}
