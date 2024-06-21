@@ -1,7 +1,12 @@
 import type { Config } from "tailwindcss";
+import flowbite from "flowbite-react/tailwind";
 
-const config: Config = {
-  content: ["./src/**/*.tsx"],
+export default {
+  content: [
+    "index.html",
+    "./src/**/*.tsx",
+    flowbite.content({ base: "../../" }),
+  ],
   theme: {
     extend: {
       colors: {
@@ -12,11 +17,7 @@ const config: Config = {
         secondary: "var(--secondary)",
         accent: "var(--accent)",
       },
-      transitionProperty: {
-        height: "height",
-      },
     },
   },
-  plugins: [],
-};
-export default config;
+  plugins: [flowbite.plugin()],
+} satisfies Config;
