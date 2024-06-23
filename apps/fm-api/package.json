@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@iefm/fm-api",
   "packageManager": "yarn@3.8.2",
   "scripts": {
     "start:dev": "tsx watch ./src/server/bin.ts",
