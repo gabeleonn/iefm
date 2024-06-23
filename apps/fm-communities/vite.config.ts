@@ -1,9 +1,8 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react-swc";
-import path from "node:path";
+import path from "node:path"
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 import { VitePWA } from "vite-plugin-pwa";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
@@ -26,9 +25,9 @@ export default defineConfig({
         "pwa-maskable-192x192.png",
       ],
       manifest: {
-        name: "Small Groups",
-        short_name: "Small Groups",
-        description: "Small Groups description",
+        name: "IEFM Comunidades",
+        short_name: "Comunidades",
+        description: "IEFM Comunidades",
         theme_color: "#ffffff",
         background_color: "#262626",
         icons: [
@@ -58,4 +57,4 @@ export default defineConfig({
       },
     }),
   ],
-});
+})

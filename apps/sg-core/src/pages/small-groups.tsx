@@ -1,5 +1,5 @@
-import { SmallGroupsCard } from "../components/small-groups/card2";
-import { withAnimation } from "../hocs/with-animation";
+import { SmallGroupsCard } from "@/components/small-groups/card";
+import { withAnimation } from "@/hocs/with-animation";
 
 import {
   HiOutlineUserGroup as UsersGroup,
@@ -90,3 +90,5 @@ function SmallGroupsPage() {
 }
 
 export const SmallGroups = withAnimation(SmallGroupsPage);
+const SmallGroupsWithAnimation = withAnimation(SmallGroupsPage);
+export default SmallGroupsWithAnimation;
