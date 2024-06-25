@@ -1,7 +1,7 @@
 import path from "node:path"
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { VitePWA } from "vite-plugin-pwa";
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import { VitePWA } from "vite-plugin-pwa"
 
 export default defineConfig({
   resolve: {
@@ -19,15 +19,11 @@ export default defineConfig({
       devOptions: {
         enabled: true,
       },
-      includeAssets: [
-        "favicon.ico",
-        "apple-touch-icon.png",
-        "pwa-maskable-192x192.png",
-      ],
+      includeAssets: ["favicon.ico", "apple-touch-icon.png", "pwa-maskable-192x192.png"],
       manifest: {
-        name: "IEFM Comunidades",
+        name: "Comunidades - IEFM",
         short_name: "Comunidades",
-        description: "IEFM Comunidades",
+        description: "App para gerenciamento de comunidades da IEFM",
         theme_color: "#ffffff",
         background_color: "#262626",
         icons: [
