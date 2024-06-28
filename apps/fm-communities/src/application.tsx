@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Route, Routes, useLocation } from "react-router-dom"
 import { Base } from "@/layouts/base"
 import { Home } from "@/pages/home"
