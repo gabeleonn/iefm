@@ -34,7 +34,7 @@ function Page() {
 
   return (
     <form
-      className="flex size-full flex-col gap-2 p-8 lg:max-w-[30%]"
+      className="flex flex-col gap-2 p-8 lg:max-w-[30%]"
       autoComplete="off"
     >
       <Brand />
