@@ -4,11 +4,16 @@ import { BrowserRouter } from "react-router-dom"
 
 import "@/index.css"
 import { Application } from "./application"
+import { Flowbite, CustomFlowbiteTheme } from "flowbite-react"
+
+const theme: CustomFlowbiteTheme = {}
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Application />
-    </BrowserRouter>
+    <Flowbite theme={{ theme }}>
+      <BrowserRouter>
+        <Application />
+      </BrowserRouter>
+    </Flowbite>
   </React.StrictMode>,
 )

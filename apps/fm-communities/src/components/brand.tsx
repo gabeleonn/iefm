@@ -6,7 +6,7 @@ export function Brand() {
       <BrandIcon
         height={50}
         width={50}
-        color="text-red-600"
+        className="text-red-600"
       />
       <span className="mt-4 text-xl font-bold">Familia Missionária</span>
     </div>

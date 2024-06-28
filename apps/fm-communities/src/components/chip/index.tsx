@@ -15,7 +15,7 @@ interface ChipProps {
 export function Chip({ label, options, name, selected, onChange, size }: ChipProps) {
   return (
     <fieldset className="flex max-w-md flex-row flex-wrap gap-2">
-      <legend className="mb-2 text-sm font-medium text-gray-900 dark:text-white">{label}</legend>
+      <legend className="mb-2 text-sm font-medium text-brand-labels dark:text-white">{label}</legend>
       {options.map((option) => (
         <ChipItem
           key={option.value}

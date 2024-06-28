@@ -1,11 +1,12 @@
-import { Brand } from "@/components/brand"
-import { Chip } from "@/components/chip"
-import { Datepicker } from "@/components/datepicker"
-import { Input } from "@/components/input"
-import { withAnimation } from "@/layouts/animation"
 import { Button } from "flowbite-react"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+
+import { Chip } from "@/components/chip"
+import { Datepicker } from "@/components/datepicker"
+import { BrandIcon } from "@/components/icons/brand"
+import { Input } from "@/components/input"
+import { withAnimation } from "@/layouts/animation"
 
 function Page() {
   const navigate = useNavigate()
@@ -34,10 +35,14 @@ function Page() {
 
   return (
     <form
-      className="flex flex-col gap-2 p-8 lg:max-w-[30%]"
+      className="relative flex w-full flex-col gap-2 overflow-hidden p-8 lg:max-w-[30%]"
       autoComplete="off"
     >
-      <Brand />
+      <BrandIcon
+        width={1080}
+        height={1080}
+        className="absolute right-[-300px] top-0 z-[-1] text-zinc-900 opacity-20"
+      />
       <h1 className="text-3xl font-bold">Crie sua conta</h1>
       <Input
         label="Nome"

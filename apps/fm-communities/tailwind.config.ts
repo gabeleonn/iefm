@@ -10,7 +10,19 @@ export default {
     }),
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        brand: {
+          labels: "#282828",
+          focus: "#6366f1",
+          button: {
+            bg: "#4338ca",
+            hover: "#312e81",
+            border: "#6366f1",
+          },
+        },
+      },
+    },
   },
   plugins: [flowbite.plugin()],
 } satisfies Config
