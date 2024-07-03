@@ -1,7 +1,0 @@
-{
-    "version": 2,
-    "rewirtes": [{
-        "source": "/(.*)",
-        "destination": "/api"
-    }]
-}
