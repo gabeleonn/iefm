@@ -35,25 +35,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth0/auth0-react@npm:^2.2.4":
-  version: 2.2.4
-  resolution: "@auth0/auth0-react@npm:2.2.4"
-  dependencies:
-    "@auth0/auth0-spa-js": ^2.1.3
-  peerDependencies:
-    react: ^16.11.0 || ^17 || ^18
-    react-dom: ^16.11.0 || ^17 || ^18
-  checksum: 10b8d4e9eaf6fe4f1e5bdeaae61bfade9a8439f0bfb5008aea34691ce45924bc92b046757884bcae99dd8902dcb62e77295e35692d51df2ed8eca6d0d7bbd335
-  languageName: node
-  linkType: hard
-
-"@auth0/auth0-spa-js@npm:^2.1.3":
-  version: 2.1.3
-  resolution: "@auth0/auth0-spa-js@npm:2.1.3"
-  checksum: aff5f3ab8a15ad63e9956e638ea13955dea22268b0d46d93561ae7accce0147198fc01203cbfe65637d709836c7ecf6a7efc5d38742dd0e251eb1387849efff5
-  languageName: node
-  linkType: hard
-
 "@babel/code-frame@npm:^7.24.7":
   version: 7.24.7
   resolution: "@babel/code-frame@npm:7.24.7"
@@ -1787,7 +1768,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@iefm/fm-communities@workspace:apps/fm-communities"
   dependencies:
-    "@auth0/auth0-react": ^2.2.4
     "@types/react": ^18.3.3
     "@types/react-dom": ^18.3.0
     "@typescript-eslint/eslint-plugin": ^7.13.1
