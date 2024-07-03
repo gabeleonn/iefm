@@ -1,5 +1,5 @@
 import type { Application, Request, Response, NextFunction } from "express";
-import { setupUsersController } from "../domains/index.js";
+import { setupUsersController } from "../domains/index";
 
 export function start(app: Application) {
   setupUsersController(app);

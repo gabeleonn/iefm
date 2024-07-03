@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
-import { CreateUserDto, LoginDto } from "./users.dto.js";
-import * as repository from "./users.repository.js";
+import { CreateUserDto, LoginDto } from "./users.dto";
+import * as repository from "./users.repository";
 import z from "zod";
 
 const validateUserCreation = z.object({

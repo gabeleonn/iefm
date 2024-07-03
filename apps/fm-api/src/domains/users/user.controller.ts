@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as service from "./users.service.js";
+import * as service from "./users.service";
 
 export async function singupHandler(request: Request, response: Response) {
   const user = request.body;

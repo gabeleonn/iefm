@@ -2,8 +2,8 @@ import express, { type Request, type Response } from "express";
 import { createServer } from "http";
 import { logger as loggerMiddleware } from "express-winston";
 
-import { start } from "@app/bin/start.js";
-import { logger } from "@app/bin/logger.js";
+import { start } from "@app/bin/start";
+import { logger } from "@app/bin/logger";
 
 const app = express();
 
