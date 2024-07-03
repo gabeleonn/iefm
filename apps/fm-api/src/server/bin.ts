@@ -1,8 +1,4 @@
-import express, {
-  type Request,
-  type Response,
-  type NextFunction,
-} from "express";
+import express, { type Request, type Response } from "express";
 import { createServer } from "http";
 import { logger as loggerMiddleware } from "express-winston";
 
@@ -25,11 +21,6 @@ app.get("/health", (req: Request, res: Response) => {
 });
 
 start(app);
-
-app.use((err: any, req: Request, res: Response, _next: NextFunction) => {
-  logger.error(err);
-  res.status(500).send("Something broke!");
-});
 
 const port = process.env.PORT || 3000;
 
