@@ -1,5 +1,5 @@
-import { database } from "@app/database";
-import { CreateUserDto, UpdateUserDto, User } from "./users.dto";
+import { database } from "@app/database/index.js";
+import { CreateUserDto, UpdateUserDto, User } from "./users.dto.js";
 
 const SANITIZED_FIELDS = [
   "id",
