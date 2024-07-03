@@ -1,7 +1,6 @@
 {
   "name": "@iefm/fm-api",
   "packageManager": "yarn@3.8.2",
-  "type": "module",
   "scripts": {
     "knex": "knex",
     "dev": "NODE_ENV=development tsx watch ./index.ts",
