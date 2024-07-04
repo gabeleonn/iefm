@@ -2,13 +2,15 @@ import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import AuthWrapper from "./auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const APP_NAME = "PWA App";
-const APP_DEFAULT_TITLE = "My Awesome PWA App";
-const APP_TITLE_TEMPLATE = "%s - PWA App";
-const APP_DESCRIPTION = "Best PWA app in the world!";
+const APP_NAME = "Comunidades";
+const APP_DEFAULT_TITLE = "Comunidades - Familia Missionária";
+const APP_TITLE_TEMPLATE = "%s - Comunidades";
+const APP_DESCRIPTION =
+  "Aplicativo de gestão de comunidades da Família Missionária.";
 
 export const metadata: Metadata = {
   applicationName: APP_NAME,
@@ -53,7 +55,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" dir="ltr">
       <head />
-      <body className={inter.className}>{children}</body>
+      <AuthWrapper>
+        <body className={inter.className}>{children}</body>
+      </AuthWrapper>
     </html>
   );
 }

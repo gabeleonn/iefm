@@ -4,7 +4,6 @@ export async function up(knex: Knex): Promise<void> {
   await knex.schema.withSchema("public").createTable("users", (table) => {
     table.bigIncrements("id").notNullable().unique();
     table.string("email").notNullable().unique();
-    table.string("password").notNullable();
     table.string("fullname").notNullable();
     table.string("phone").nullable();
     table.string("cpf").notNullable();

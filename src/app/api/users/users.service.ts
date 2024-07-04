@@ -13,8 +13,10 @@ const validateUserCreation = z.object({
   church_code: z.enum(["FRG", "SEDE"]),
 });
 
-export async function createUser(user: CreateUserDto) {
+export async function createUser(user?: CreateUserDto) {
   const validatedUser = validateUserCreation.parse(user);
 
-  return await repository.createUser(validatedUser);
+  const [dbUser] = await repository.createUser(validatedUser);
+
+  return dbUser;
 }
