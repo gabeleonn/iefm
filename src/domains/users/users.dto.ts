@@ -1,7 +1,6 @@
 export interface User {
   id: number;
   email: string;
-  password: string;
   fullname: string;
   phone: string;
   cpf: string;
@@ -14,7 +13,6 @@ export interface User {
   updated_at: Date;
 }
 
-export type LoginDto = Pick<User, "email" | "password">;
 export type CreateUserDto = Omit<User, "id" | "created_at" | "updated_at">;
 export type UpdateUserDto = Partial<CreateUserDto>;
 export type UpsertUserDto = CreateUserDto | UpdateUserDto;

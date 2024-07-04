@@ -1,20 +1,29 @@
-import { Datepicker as FlowBiteDatepicker, Label, DatepickerProps } from "flowbite-react"
+import {
+  Datepicker as FlowBiteDatepicker,
+  Label,
+  DatepickerProps,
+} from "flowbite-react";
 
-interface InputProps extends Omit<DatepickerProps, "onChange" | "name" | "value"> {
-  label: string
-  name: string
-  onChange: (field: { name: string; value: string }) => void
-  value?: string
+interface InputProps
+  extends Omit<DatepickerProps, "onChange" | "name" | "value"> {
+  label: string;
+  name: string;
+  onChange: (field: { name: string; value: string }) => void;
+  value?: string;
 }
 
-export function Datepicker({ id, label, name, value = "", onChange, ...props }: InputProps) {
+export function Datepicker({
+  id,
+  label,
+  name,
+  value = "",
+  onChange,
+  ...props
+}: InputProps) {
   return (
     <div>
       <div className="mb-2 block">
-        <Label
-          htmlFor={id}
-          value={label}
-        />
+        <Label htmlFor={id} value={label} />
       </div>
       <FlowBiteDatepicker
         id={id}
@@ -25,8 +34,10 @@ export function Datepicker({ id, label, name, value = "", onChange, ...props }: 
         labelTodayButton="Hoje"
         labelClearButton="Limpar"
         defaultDate={new Date(value)}
-        onSelectedDateChanged={(date) => onChange({ name, value: date.toLocaleDateString("pt-BR") })}
+        onSelectedDateChanged={(date) =>
+          onChange({ name, value: date.toLocaleDateString("pt-BR") })
+        }
       />
     </div>
-  )
+  );
 }

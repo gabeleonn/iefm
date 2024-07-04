@@ -1,4 +1,4 @@
-import { Icon } from "./icon"
+import { Icon } from "./icon";
 
 export function CogIcon({ className }: { className?: string }) {
   return (
@@ -18,5 +18,5 @@ export function CogIcon({ className }: { className?: string }) {
         d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
       />
     </Icon>
-  )
+  );
 }

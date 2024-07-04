@@ -1,13 +1,12 @@
-import { Outlet } from "react-router-dom"
-import { Navigation } from "@/components/navigation"
+// import { Navigation } from "@/components/navigation";
 
-export function Base({ publicRoute = false }: { publicRoute?: boolean }) {
-  if (publicRoute) return <Outlet />
+// export function Base({ publicRoute = false }: { publicRoute?: boolean }) {
+//   if (publicRoute) return <Outlet />;
 
-  return (
-    <>
-      <Outlet />
-      <Navigation />
-    </>
-  )
-}
+//   return (
+//     <>
+//       <Outlet />
+//       <Navigation />
+//     </>
+//   );
+// }

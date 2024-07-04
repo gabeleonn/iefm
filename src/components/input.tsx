@@ -1,19 +1,16 @@
-import { TextInput, Label, TextInputProps } from "flowbite-react"
+import { TextInput, Label, TextInputProps } from "flowbite-react";
 
 interface InputProps extends Omit<TextInputProps, "onChange" | "name"> {
-  label: string
-  name: string
-  onChange: (field: { name: string; value: string }) => void
+  label: string;
+  name: string;
+  onChange: (field: { name: string; value: string }) => void;
 }
 
 export function Input({ id, label, name, onChange, ...props }: InputProps) {
   return (
     <div>
       <div className="mb-2 block">
-        <Label
-          htmlFor={id}
-          value={label}
-        />
+        <Label htmlFor={id} value={label} />
       </div>
       <TextInput
         id={id}
@@ -25,5 +22,5 @@ export function Input({ id, label, name, onChange, ...props }: InputProps) {
         autoComplete="off"
       />
     </div>
-  )
+  );
 }

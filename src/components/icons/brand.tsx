@@ -1,5 +1,5 @@
 interface BrandIconProps extends React.SVGProps<SVGSVGElement> {
-  color?: string
+  color?: string;
 }
 
 export function BrandIcon(props: BrandIconProps) {
@@ -24,5 +24,5 @@ export function BrandIcon(props: BrandIconProps) {
         />
       </g>
     </svg>
-  )
+  );
 }

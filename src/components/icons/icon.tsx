@@ -1,4 +1,10 @@
-export function Icon({ className, children }: { className?: string; children?: React.ReactNode }) {
+export function Icon({
+  className,
+  children,
+}: {
+  className?: string;
+  children?: React.ReactNode;
+}) {
   return (
     <svg
       className={className}
@@ -11,5 +17,5 @@ export function Icon({ className, children }: { className?: string; children?: R
     >
       {children}
     </svg>
-  )
+  );
 }
