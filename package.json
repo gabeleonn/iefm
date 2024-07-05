@@ -9,8 +9,8 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.4.2",
     "@serwist/next": "^9.0.3",
-    "flowbite-react": "^0.10.1",
     "framer-motion": "^11.2.13",
     "knex": "^3.1.0",
     "next": "14.2.4",

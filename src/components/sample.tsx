@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@nextui-org/react";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export function SampleComponent() {
@@ -9,12 +10,12 @@ export function SampleComponent() {
       {session?.user ? (
         <>
           Signed in as {session.user.email} <br />
-          <button onClick={() => signOut()}>Sign out</button>
+          <Button color="primary" onClick={() => signOut()}>Sign out</Button>
         </>
       ) : (
         <>
           Not signed in <br />
-          <button onClick={() => signIn()}>Sign in</button>
+          <Button color="primary" onClick={() => signIn()}>Sign in</Button>
         </>
       )}
     </div>
