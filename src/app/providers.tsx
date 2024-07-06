@@ -1,6 +1,6 @@
 "use client";
+import { AuthProvider } from "@/auth/auth";
 import { NextUIProvider } from "@nextui-org/react";
-import { SessionProvider } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -8,7 +8,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   return (
     <NextUIProvider navigate={router.push}>
-      <SessionProvider>{children}</SessionProvider>
+      <main className="min-h-screen h-full max-w-screen w-screen">
+        <AuthProvider>{children}</AuthProvider>
+      </main>
     </NextUIProvider>
   );
 }

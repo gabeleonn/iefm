@@ -7,17 +7,7 @@ export function SampleComponent() {
 
   return (
     <div>
-      {session?.user ? (
-        <>
-          Signed in as {session.user.email} <br />
-          <Button color="primary" onClick={() => signOut()}>Sign out</Button>
-        </>
-      ) : (
-        <>
-          Not signed in <br />
-          <Button color="primary" onClick={() => signIn()}>Sign in</Button>
-        </>
-      )}
+      Signed in as {session?.user?.email} <br />
     </div>
   );
 }
