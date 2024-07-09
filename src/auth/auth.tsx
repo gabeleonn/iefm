@@ -32,7 +32,7 @@ function Provider({ children }: { children: React.ReactNode }) {
   if (status === "authenticated" || isPublicRoute) return <>{children}</>;
 
   return (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="w-full min-h-screen h-full flex items-center justify-center">
       <Spinner />
     </div>
   );

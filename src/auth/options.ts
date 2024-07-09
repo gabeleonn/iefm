@@ -3,7 +3,10 @@ import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
   session: {
-    strategy: "jwt", //(1)
+    strategy: "jwt",
+  },
+  pages: {
+    signIn: "/signin",
   },
   providers: [
     GoogleProvider({
