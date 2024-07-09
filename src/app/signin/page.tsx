@@ -16,10 +16,8 @@ export default function SignIn() {
   }, [status, router]);
 
   return (
-    <div
-      className={`relative w-full h-full min-h-screen bg-[url('./assets/bg.jpg')] bg-center bg-cover pt-[50vh] flex flex-col`}
-    >
-      <section className="w-full h-[50vh] bg-gray-50 rounded-t-[32px] p-4">
+    <div className="relative w-full h-full min-h-screen bg-[url('./assets/bg.jpg')] bg-center bg-cover flex flex-col">
+      <section className="absolute bottom-0 w-full h-[50vh] bg-gray-50 rounded-t-[32px] p-4">
         <div className="flex justify-center items-center">
           <Image
             as={NextImage}

@@ -11,7 +11,6 @@ function Provider({ children }: { children: React.ReactNode }) {
   const publicRoutes = useMemo(
     () => [
       "/signin",
-      "/signup",
       "/termos-de-uso",
       "/politica-de-privacidade",
       "/celulas/buscar",
