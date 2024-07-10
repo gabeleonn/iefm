@@ -9,8 +9,8 @@ export function SampleComponent() {
 
   return (
     <div>
-      Signed in as {JSON.stringify(session, null, 2)} <br />
-      {JSON.stringify(data ?? {})}
+      <pre>{JSON.stringify(data ?? {}, null, 2)}</pre>
+      <br />
       <Button onClick={() => signOut()}>Sign Out</Button>
     </div>
   );
