@@ -4,7 +4,7 @@ export interface User {
   fullname: string;
   phone: string;
   cpf: string;
-  birthday: Date;
+  birthday: string;
   gender: "male" | "female";
   baptized: "yes" | "no";
   church_code: "FRG" | "SEDE";

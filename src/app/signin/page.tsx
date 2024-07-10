@@ -48,7 +48,7 @@ export default function SignIn() {
               />
             ) : null
           }
-          onClick={() => signIn("google", { callbackUrl: "/" })}
+          onClick={() => signIn("google", { callbackUrl: "/signup" })}
         >
           Entrar com Google
         </Button>

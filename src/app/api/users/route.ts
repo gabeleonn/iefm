@@ -1,4 +1,3 @@
-import { NextRequest, NextResponse } from "next/server";
 import * as service from "./users.service";
 
 async function createNewUser(req: Request) {

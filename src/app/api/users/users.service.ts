@@ -7,7 +7,7 @@ const validateUserCreation = z.object({
   fullname: z.string(),
   phone: z.string().min(11).max(11),
   cpf: z.string().min(11).max(11),
-  birthday: z.coerce.date(),
+  birthday: z.string().date(),
   gender: z.enum(["male", "female"]),
   baptized: z.enum(["yes", "no"]),
   church_code: z.enum(["FRG", "SEDE"]),
@@ -19,4 +19,8 @@ export async function createUser(user?: CreateUserDto) {
   const [dbUser] = await repository.createUser(validatedUser);
 
   return dbUser;
+}
+
+export async function getUserByEmail(email: string) {
+  return await repository.getUserByEmail(email);
 }
