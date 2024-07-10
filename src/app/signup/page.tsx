@@ -50,7 +50,7 @@ export default function SignIn() {
     createUser(form);
   };
 
-  if (!isLoading && !isPending && !hasUser) {
+  if (isLoading && isPending && !hasUser) {
     return (
       <div className="w-full min-h-screen h-full flex items-center justify-center">
         <Spinner />

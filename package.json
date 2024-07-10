@@ -13,6 +13,7 @@
     "@nextui-org/react": "^2.4.2",
     "@serwist/next": "^9.0.3",
     "@tanstack/react-query": "^5.50.1",
+    "@tanstack/react-query-devtools": "^5.50.1",
     "axios": "^1.7.2",
     "framer-motion": "^11.2.13",
     "knex": "^3.1.0",

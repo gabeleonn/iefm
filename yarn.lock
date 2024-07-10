@@ -3102,6 +3102,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-devtools@npm:5.50.1":
+  version: 5.50.1
+  resolution: "@tanstack/query-devtools@npm:5.50.1"
+  checksum: 0f08b1d2d4fb8f78150bb286fd1bcdce341aac7c9e53334979c3c34719a1a2b45ac73332fab18d87512d3c97954a41d5cf8430bac992b21e72b925f1c9ec8f4e
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-devtools@npm:^5.50.1":
+  version: 5.50.1
+  resolution: "@tanstack/react-query-devtools@npm:5.50.1"
+  dependencies:
+    "@tanstack/query-devtools": 5.50.1
+  peerDependencies:
+    "@tanstack/react-query": ^5.50.1
+    react: ^18 || ^19
+  checksum: 14d5b848a10035dc3ad77b61a7bf9f276981e2dc90ef1f9f73cc189f255849b2b33d6ec0d7a2c2d0083aba442001bf94da41a0a4d3c26d222f6d4f5b00516ad6
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-query@npm:^5.50.1":
   version: 5.50.1
   resolution: "@tanstack/react-query@npm:5.50.1"
@@ -4687,6 +4706,7 @@ __metadata:
     "@nextui-org/react": ^2.4.2
     "@serwist/next": ^9.0.3
     "@tanstack/react-query": ^5.50.1
+    "@tanstack/react-query-devtools": ^5.50.1
     "@types/node": ^20
     "@types/react": ^18
     "@types/react-dom": ^18
