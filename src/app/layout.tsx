@@ -49,6 +49,9 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#FFFFFF",
+  maximumScale: 1,
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default async function RootLayout({
@@ -57,7 +60,7 @@ export default async function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="en" dir="ltr">
+    <html lang="pt-BR" dir="ltr">
       <head />
       <body className={inter.className}>
         <Providers>{children}</Providers>
