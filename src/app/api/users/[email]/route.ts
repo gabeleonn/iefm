@@ -1,21 +1,11 @@
+import { adaptToNextRoute, Handler } from "@/app/lib/api";
 import * as service from "../users.service";
 
-async function getUserByEmail(
-  { credentials, headers, ...req }: Request,
-  { params }: { params: { email: string } },
-) {
-  try {
-    const user = await service.getUserByEmail(params.email);
+const getUserByEmail: Handler = async ({ params }) => {
+  return {
+    data: await service.getUserByEmail(params.email),
+    status: 200,
+  };
+};
 
-    if (!user) {
-      return Response.json({ error: "User not found" }, { status: 404 });
-    }
-
-    return Response.json(user, { status: 200 });
-  } catch (error: any) {
-    console.error(error);
-    return Response.json({ error: error.message }, { status: 400 });
-  }
-}
-
-export { getUserByEmail as GET };
+export const GET = adaptToNextRoute(getUserByEmail);

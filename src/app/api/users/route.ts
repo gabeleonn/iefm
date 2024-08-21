@@ -1,15 +1,12 @@
+import { adaptToNextRoute, Handler } from "@/app/lib/api";
 import * as service from "./users.service";
+import { CreateUserDto } from "./users.dto";
 
-async function createNewUser(req: Request) {
-  try {
-    const body = await req.json();
-    const user = await service.createUser(body);
+const createNewUser: Handler = async ({ body }) => {
+  return {
+    data: await service.createUser(body as CreateUserDto),
+    status: 201,
+  };
+};
 
-    return Response.json(user, { status: 201 });
-  } catch (error: any) {
-    console.error(error);
-    return Response.json({ error: error.message }, { status: 400 });
-  }
-}
-
-export { createNewUser as POST };
+export const POST = adaptToNextRoute(createNewUser);

@@ -11,6 +11,7 @@ const validateUserCreation = z.object({
   gender: z.enum(["male", "female"]),
   baptized: z.enum(["yes", "no"]),
   church_code: z.enum(["FRG", "SEDE"]),
+  role_id: z.number(),
 });
 
 export async function createUser(user?: CreateUserDto) {

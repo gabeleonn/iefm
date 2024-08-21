@@ -7,7 +7,7 @@ export interface User {
   birthday: string;
   gender: "male" | "female";
   baptized: "yes" | "no";
-  church_code: "FRG" | "SEDE";
+  role_id: number;
 
   created_at: Date;
   updated_at: Date;
