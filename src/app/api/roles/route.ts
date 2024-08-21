@@ -2,14 +2,14 @@ import { adaptToNextRoute, Handler } from "@/app/lib/api";
 import * as service from "./roles.service";
 import { CreateRole } from "./roles.dto";
 
-export const getRoles: Handler = async () => {
+const getRoles: Handler = async () => {
   return {
     data: await service.list(),
     status: 200,
   };
 };
 
-export const addRole: Handler = async ({ body }) => {
+const addRole: Handler = async ({ body }) => {
   return {
     data: await service.create(body as CreateRole),
     status: 201,
