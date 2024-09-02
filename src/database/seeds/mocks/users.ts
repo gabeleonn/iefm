@@ -1,23 +1,6 @@
-export interface User {
-  id: string;
-  created_at: Date;
-  updated_at: Date;
+import { User } from "../../models/users";
 
-  fullname: string;
-  cpf: string;
-  birthday: Date;
-  gender: "male" | "female";
-
-  email: string;
-  phone: string;
-
-  baptized: "yes" | "no";
-
-  role_id: bigint;
-  organization_id: string;
-}
-
-export const admin = {
+export const admin = new User({
   id: "2002b04e-d83d-4885-9ccc-1c3beeb9e355",
   created_at: new Date(),
   updated_at: new Date(),
@@ -34,4 +17,4 @@ export const admin = {
 
   role_id: BigInt(0),
   organization_id: "1e956d32-5ad8-452e-b310-9f9c78fab8b4",
-};
+});

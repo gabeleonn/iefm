@@ -1,12 +1,18 @@
 import { adaptToNextRoute, Handler } from "@/app/lib/api";
-import * as service from "./users.service";
-import { CreateUserDto } from "./users.dto";
+import { validate } from "@/app/lib/validator";
+import { getKnex } from "@/database";
+import { CreateUser, User } from "@/database/models/users";
 
 const createNewUser: Handler = async ({ body }) => {
-  return {
-    data: await service.createUser(body as CreateUserDto),
-    status: 201,
-  };
+  const raw = new CreateUser(body);
+
+  await raw.validate();
+
+  const [user] = await getKnex()<User>("users")
+    .insert<CreateUser>(raw)
+    .returning("*");
+
+  return [user, 201];
 };
 
 export const POST = adaptToNextRoute(createNewUser);

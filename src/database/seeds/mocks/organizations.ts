@@ -1,32 +1,6 @@
-export interface OrganizationSettings {
-  [key: string]: any;
-}
+import { Organization } from "@/database/models/organizations";
 
-export interface Organization {
-  id: string;
-  created_at: Date;
-  updated_at: Date;
-  status: "active" | "inactive";
-  type: "headquarters" | "branch";
-
-  name: string;
-  short_name: string;
-  cnpj: string;
-
-  email: string;
-  phone: string;
-  website: string;
-
-  address: string;
-  number: string;
-  city: string;
-  state: string;
-  cep: string;
-
-  settings: OrganizationSettings;
-}
-
-const sede: Organization = {
+const sede: Organization = new Organization({
   id: "1e956d32-5ad8-452e-b310-9f9c78fab8b4",
   created_at: new Date(),
   updated_at: new Date(),
@@ -34,7 +8,7 @@ const sede: Organization = {
   type: "headquarters",
 
   name: "Igreja Evangélica Família Missionária",
-  short_name: "IEFM",
+  shortname: "IEFM",
   cnpj: "18586951000150",
 
   email: "iefm@iefm.com.br",
@@ -50,9 +24,9 @@ const sede: Organization = {
   settings: {
     sample: "ok",
   },
-};
+});
 
-const fazenda: Organization = {
+const fazenda: Organization = new Organization({
   id: "4089491d-8864-4cc5-ae05-fc5c5c5d64ce",
   created_at: new Date(),
   updated_at: new Date(),
@@ -60,7 +34,7 @@ const fazenda: Organization = {
   type: "branch",
 
   name: "Igreja Evangélica Família Missionária Fazenda Rio Grande",
-  short_name: "IEFM FRG",
+  shortname: "IEFM FRG",
   cnpj: "18586951000150",
 
   email: "fazenda@iefm.com.br",
@@ -76,6 +50,6 @@ const fazenda: Organization = {
   settings: {
     sample: "ok",
   },
-};
+});
 
 export const organizations = [sede, fazenda];

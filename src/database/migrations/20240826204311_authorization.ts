@@ -69,7 +69,6 @@ export async function up(knex: Knex): Promise<void> {
 }
 
 export async function down(knex: Knex): Promise<void> {
-  // A ordem de exclusão deve ser inversa à de criação
   await knex.schema.dropTable("organization_roles");
   await knex.schema.dropTable("role_permissions");
   await knex.schema.dropTable("permissions");

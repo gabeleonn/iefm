@@ -18,7 +18,7 @@ export async function up(knex: Knex): Promise<void> {
         .defaultTo("active");
 
       table.string("name").notNullable();
-      table.string("short_name").notNullable();
+      table.string("shortname").notNullable();
       table.string("cnpj").notNullable();
 
       table.string("email").notNullable();
@@ -55,6 +55,8 @@ export async function up(knex: Knex): Promise<void> {
         .notNullable()
         .onDelete("CASCADE")
         .onUpdate("CASCADE");
+
+      table.unique(["organization_id", "branch_id"]);
     });
 }
 

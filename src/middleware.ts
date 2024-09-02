@@ -7,13 +7,11 @@ export default withAuth({
   },
   callbacks: {
     authorized({ req, token }) {
-      if (req.nextUrl.pathname.startsWith("/api")) {
-        return Boolean(token);
-      }
-
-      return true;
+      return Boolean(token);
     },
   },
 });
 
-export const config = {};
+export const config = {
+  matcher: ["/api/:path*"],
+};

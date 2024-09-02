@@ -5,7 +5,7 @@ export interface ApiError {
 }
 
 export class ApiError extends Error {
-  constructor(message: string, name: string, status: number) {
+  constructor(name: string, status: number, message: string) {
     super(message);
     this.name = name;
     this.status = status;
@@ -21,24 +21,14 @@ export class ApiError extends Error {
   }
 }
 
-export const BadRequest = ApiError.bind(null, "Bad Request", "BadRequest", 400);
-export const Unauthorized = ApiError.bind(
-  null,
-  "Unauthorized",
-  "Unauthorized",
-  401,
-);
-export const Forbidden = ApiError.bind(null, "Forbidden", "Forbidden", 403);
-export const NotFound = ApiError.bind(null, "Not Found", "NotFound", 404);
-export const MethodNotAllowed = ApiError.bind(
-  null,
-  "Method Not Allowed",
-  "MethodNotAllowed",
-  405,
-);
+export const BadRequest = ApiError.bind(null, "BadRequest", 400);
+export const Unauthorized = ApiError.bind(null, "Unauthorized", 401);
+export const Forbidden = ApiError.bind(null, "Forbidden", 403);
+export const NotFound = ApiError.bind(null, "NotFound", 404);
+export const MethodNotAllowed = ApiError.bind(null, "MethodNotAllowed", 405);
 export const InternalServerError = ApiError.bind(
   null,
-  "Internal Server Error",
   "InternalServerError",
   500,
+  "Internal Server Error",
 );
