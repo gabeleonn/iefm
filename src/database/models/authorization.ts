@@ -41,7 +41,7 @@ class RolePermissionModel extends Model {
 }
 
 export class RolePermission extends RolePermissionModel {
-  constructor(data: Partial<Role>) {
+  constructor(data: Partial<RolePermission>) {
     super(data, RolePermission);
   }
 }

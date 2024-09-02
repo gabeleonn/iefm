@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "knex": "ts-node -r tsconfig-paths/register ./node_modules/.bin/knex"
+    "knex": "ts-node -P ./tsconfig.knex.json -r tsconfig-paths/register ./node_modules/.bin/knex"
   },
   "dependencies": {
     "@internationalized/date": "^3.5.4",

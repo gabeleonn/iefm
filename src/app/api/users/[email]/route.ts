@@ -7,7 +7,7 @@ const getUserByEmail: Handler = async ({ params: { email } }) => {
   const user = await getKnex()<User>("users").where("email", email).first();
 
   if (!user) {
-    throw new NotFound();
+    throw new NotFound("User not found");
   }
 
   return [user, 200];
