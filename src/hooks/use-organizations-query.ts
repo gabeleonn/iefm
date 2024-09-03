@@ -9,7 +9,7 @@ export function useOrganizationOptionsQuery() {
       return data;
     },
     placeholderData: [],
-    select: (data) => Array.isArray(data) ? data : [],
+    select: (data) => (Array.isArray(data) ? data : []),
     retry: false,
-  })
+  });
 }

@@ -40,6 +40,11 @@ export class User extends Timestamps {
   role_id!: bigint;
   @IsUUID()
   organization_id!: string;
+
+  constructor(data: any) {
+    super();
+    Object.assign(this, data);
+  }
 }
 
 export class CreateUser {

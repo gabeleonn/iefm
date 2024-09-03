@@ -67,7 +67,9 @@ export default function SignIn() {
           </h2>
         </CardHeader>
         <CardBody>
-          {data?.data?.status !== 200 ? <p>{data?.data?.error?.message}</p>: null}
+          {data?.data?.status !== 200 ? (
+            <p>{data?.data?.error?.message}</p>
+          ) : null}
           <br />
           <div className="flex flex-col gap-4">
             <Input
@@ -129,7 +131,9 @@ export default function SignIn() {
               orientation="horizontal"
               size="sm"
               defaultValue={form.organization_id}
-              onChange={(e) => handleFormChange("organization_id", e.target.value)}
+              onChange={(e) =>
+                handleFormChange("organization_id", e.target.value)
+              }
             >
               {orgOptions?.map((org: any) => (
                 <Radio key={org.value} value={org.value}>

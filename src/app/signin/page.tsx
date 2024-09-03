@@ -8,7 +8,7 @@ import { useUserQuery } from "@/hooks/use-user-query";
 import { isObjectEmpty } from "@/helpers";
 
 export default function SignIn() {
-  const { user, isAuthenticated, isLoading  } = useUserQuery();
+  const { user, isAuthenticated, isLoading } = useUserQuery();
   const router = useRouter();
 
   useEffect(() => {

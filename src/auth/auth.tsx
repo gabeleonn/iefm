@@ -28,7 +28,7 @@ function Provider({ children }: { children: React.ReactNode }) {
     [pathname, publicRoutes],
   );
 
-  if (isLoading && status !== 'success') {
+  if (isLoading && status !== "success") {
     return <Loading />;
   }
 
