@@ -1,5 +1,3 @@
-import { OmitType, PickType } from "@/app/lib/type-utils";
-
 import {
   IsUUID,
   IsDateString,
@@ -8,9 +6,10 @@ import {
   IsNumber,
   IsEmail,
 } from "class-validator";
-import { Model } from "./shared";
+import { Timestamps } from "./shared";
+import { Transform } from "class-transformer";
 
-class UserModel extends Model {
+export class User extends Timestamps {
   @IsUUID()
   id!: string;
 
@@ -43,35 +42,37 @@ class UserModel extends Model {
   organization_id!: string;
 }
 
-export class User extends UserModel {
-  constructor(data: Partial<User>) {
-    super(data, User);
-  }
-}
+export class CreateUser {
+  @Length(2, 255)
+  fullname!: string;
+  @Length(11, 11)
+  cpf!: string;
+  @IsDateString(
+    {},
+    {
+      message: "Data de nascimento inválida",
+    },
+  )
+  birthday!: Date;
+  @IsEnum(["male", "female"], {
+    message: "Gênero inválido",
+  })
+  gender!: "male" | "female";
+  @IsEnum(["yes", "no"])
+  baptized!: "yes" | "no";
 
-export class CreateUser extends OmitType(User, [
-  "id",
-  "created_at",
-  "updated_at",
-]) {
-  constructor(data: Partial<User>) {
-    super(data);
-  }
-}
+  @IsEmail()
+  email!: string;
+  @Length(11, 11)
+  phone!: string;
 
-export class UpdateUser extends OmitType(User, [
-  "id",
-  "cpf",
-  "created_at",
-  "updated_at",
-]) {
-  constructor(data: Partial<User>) {
-    super(data);
-  }
-}
+  @Transform(({ value }) => value || 6)
+  @IsNumber()
+  role_id!: bigint;
+  @IsUUID()
+  organization_id!: string;
 
-export class DeleteUser extends PickType(User, ["id"]) {
-  constructor(data: Pick<User, "id">) {
-    super(data);
+  constructor(data: any) {
+    Object.assign(this, data);
   }
 }

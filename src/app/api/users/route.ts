@@ -1,12 +1,19 @@
 import { adaptToNextRoute, Handler } from "@/app/lib/api";
-import { validate } from "@/app/lib/validator";
+import { BadRequest } from "@/app/lib/errors";
 import { getKnex } from "@/database";
 import { CreateUser, User } from "@/database/models/users";
+import { validate } from "class-validator";
 
 const createNewUser: Handler = async ({ body }) => {
   const raw = new CreateUser(body);
 
-  await raw.validate();
+  const err = await validate(raw);
+
+  if (err.length) {
+    throw new BadRequest(
+      `Invalid properties: ${err.map((e) => e.property).join(", ")}`,
+    );
+  }
 
   const [user] = await getKnex()<User>("users")
     .insert<CreateUser>(raw)

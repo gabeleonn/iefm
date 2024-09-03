@@ -16,6 +16,8 @@ import {
 } from "@nextui-org/react";
 import { CalendarDate } from "@internationalized/date";
 import { Radio } from "@/components/radio";
+import { Loading } from "@/components/loading";
+import { useOrganizationOptionsQuery } from "@/hooks/use-organizations-query";
 
 export default function SignIn() {
   const [form, setForm] = useState({
@@ -25,15 +27,17 @@ export default function SignIn() {
     gender: "male",
     phone: "",
     baptized: "yes",
-    church_code: "FRG",
+    organization_id: "",
+    role_id: 5,
   });
-  const { data, status, isLoading } = useUserQuery();
-  const { mutate: createUser, isPending } = useCreateUserMutation();
+  const { user, isLoading, status, isAuthenticated } = useUserQuery();
+  const { mutate: createUser, isPending, data } = useCreateUserMutation();
   const router = useRouter();
+  const { data: orgOptions } = useOrganizationOptionsQuery();
 
   const hasUser = useMemo(
-    () => !isObjectEmpty(data) && status === "success",
-    [data, status],
+    () => !isObjectEmpty(user) && status === "success" && isAuthenticated,
+    [user, status, isAuthenticated],
   );
 
   useEffect(() => {
@@ -51,11 +55,7 @@ export default function SignIn() {
   };
 
   if (isLoading && isPending && !hasUser) {
-    return (
-      <div className="w-full min-h-screen h-full flex items-center justify-center">
-        <Spinner />
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
@@ -67,6 +67,8 @@ export default function SignIn() {
           </h2>
         </CardHeader>
         <CardBody>
+          {data?.data?.status !== 200 ? <p>{data?.data?.error?.message}</p>: null}
+          <br />
           <div className="flex flex-col gap-4">
             <Input
               type="text"
@@ -126,11 +128,14 @@ export default function SignIn() {
               label="Sexo"
               orientation="horizontal"
               size="sm"
-              defaultValue={form.church_code}
-              onChange={(e) => handleFormChange("church_code", e.target.value)}
+              defaultValue={form.organization_id}
+              onChange={(e) => handleFormChange("organization_id", e.target.value)}
             >
-              <Radio value="SEDE">IEFM Sede</Radio>
-              <Radio value="FRG">IEFM Fazenda Rio Grande</Radio>
+              {orgOptions?.map((org: any) => (
+                <Radio key={org.value} value={org.value}>
+                  {org.shortname}
+                </Radio>
+              ))}
             </RadioGroup>
           </div>
         </CardBody>

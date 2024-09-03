@@ -3,20 +3,24 @@ import axios from "axios";
 import { useSession } from "next-auth/react";
 
 export function useUserQuery() {
-  const { status, data: session } = useSession();
+  const { status: sessionStatus, data: session } = useSession();
 
-  return useQuery({
+  const { status: queryStatus, data: user, isLoading } = useQuery({
     queryKey: ["user", session?.user?.email],
     queryFn: async () => {
-      const { data, status } = await axios.get(
+      const { data } = await axios.get(
         `/api/users/${session?.user?.email}`,
       );
-      return status === 200 ? data : null;
+
+      return data;
     },
+    select: (data) => data?.id ? data : null,
     retry: false,
     refetchOnWindowFocus: false,
-    enabled: status === "authenticated" && !!session?.user?.email,
+    enabled: sessionStatus === "authenticated" && !!session?.user?.email,
   });
+
+  return { user, isAuthenticated: sessionStatus === "authenticated", status: queryStatus, isLoading };
 }
 
 export function useCreateUserMutation() {
@@ -27,7 +31,7 @@ export function useCreateUserMutation() {
     mutationKey: ["create-user"],
     mutationFn: async (user: any) => {
       if (status === "authenticated" && session.user?.email) {
-        const { data, status } = await axios.post("/api/users", {
+        const { data, status } = await axios.post<{ status: number; error?: any }>("/api/users", {
           ...user,
           email: session.user.email,
           birthday: user.birthday.toString(),

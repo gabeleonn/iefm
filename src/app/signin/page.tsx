@@ -1,23 +1,27 @@
 "use client";
 import NextImage from "next/image";
 import { Button, Image } from "@nextui-org/react";
-import { useSession, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useUserQuery } from "@/hooks/use-user-query";
+import { isObjectEmpty } from "@/helpers";
 
 export default function SignIn() {
-  const { status } = useSession();
+  const { user, isAuthenticated, isLoading  } = useUserQuery();
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "authenticated") {
+    if (!isObjectEmpty(user) && isAuthenticated) {
       router.push("/");
+    } else if (isAuthenticated && isObjectEmpty(user)) {
+      router.push("/signup");
     }
-  }, [status, router]);
+  }, [isAuthenticated, user, router]);
 
   return (
-    <div className="relative w-full h-full min-h-screen bg-[url('./assets/bg.jpg')] bg-center bg-cover flex flex-col">
-      <section className="absolute bottom-0 w-full h-[50vh] bg-gray-50 rounded-t-[32px] p-4">
+    <div className="relative w-full h-full min-h-screen bg-[url('./assets/bg.jpg')] bg-center bg-cover flex flex-col md:items-center md:justify-center">
+      <section className="absolute bottom-0 w-full h-[50vh] bg-gray-50 rounded-t-[32px] p-4 md:relative md:w-[30vw] md:rounded-b-[32px] md:h-fit md:p-8">
         <div className="flex justify-center items-center">
           <Image
             as={NextImage}
@@ -29,15 +33,15 @@ export default function SignIn() {
           />
           <h3 className="font-bold mt-4">Família Missionária</h3>
         </div>
-        <h2 className="font-bold text-3xl text-center mt-[30%]">
+        <h2 className="font-bold text-3xl text-center mt-[30%] md:mt-10">
           Seja bem vindo!
         </h2>
         <Button
-          isLoading={status === "loading"}
+          isLoading={isLoading}
           className="w-full bg-gray-200 mt-8"
           size="lg"
           startContent={
-            status !== "loading" ? (
+            !isLoading ? (
               <Image
                 as={NextImage}
                 className="text-blue-600"

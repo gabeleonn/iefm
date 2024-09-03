@@ -1,13 +1,18 @@
 "use client";
-import { Spinner } from "@nextui-org/react";
-import { SessionProvider, useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
 import { useMemo } from "react";
+import { SessionProvider } from "next-auth/react";
+import { useIsFetching } from "@tanstack/react-query";
+import { usePathname, useRouter } from "next/navigation";
+
+import { useUserQuery } from "@/hooks/use-user-query";
+import Loading from "@/app/loading";
 
 function Provider({ children }: { children: React.ReactNode }) {
-  const { status } = useSession();
+  const isLoading = useIsFetching();
+  const { status, isAuthenticated } = useUserQuery();
   const pathname = usePathname();
   const router = useRouter();
+
   const publicRoutes = useMemo(
     () => [
       "/signin",
@@ -23,18 +28,16 @@ function Provider({ children }: { children: React.ReactNode }) {
     [pathname, publicRoutes],
   );
 
-  if (status === "unauthenticated" && !isPublicRoute) {
-    router.push("/signin");
-    return null;
+  if (isLoading && status !== 'success') {
+    return <Loading />;
   }
 
-  if (status === "authenticated" || isPublicRoute) return <>{children}</>;
+  if (!isAuthenticated && !isPublicRoute) {
+    router.push("/signin");
+    return <Loading />;
+  }
 
-  return (
-    <div className="w-full min-h-screen h-full flex items-center justify-center">
-      <Spinner />
-    </div>
-  );
+  return <>{children}</>;
 }
 
 function withSessionProvider(Component: React.ComponentType<any>) {
