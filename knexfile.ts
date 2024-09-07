@@ -10,7 +10,7 @@ const config: Record<string, Knex.Config> = {
 
   development: {
     client: "postgresql",
-    connection: "postgresql://postgres:postgres@localhost:5432/fm-api",
+    connection: "postgresql://postgres:postgres@localhost:5432/iefm",
     searchPath: ["knex", "public"],
     pool: {
       min: 2,
