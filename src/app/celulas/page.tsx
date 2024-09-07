@@ -1,3 +1,5 @@
+import Page from "@/components/page-layout";
+
 export default function SmallGroups() {
-  return <>Minhas Celulas</>;
+  return <Page title="Células">Some other content</Page>;
 }

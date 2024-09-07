@@ -7,21 +7,16 @@ import { usePathname, useRouter } from "next/navigation";
 import { useUserQuery } from "@/hooks/use-user-query";
 import Loading from "@/app/loading";
 
-function Provider({ children }: { children: React.ReactNode }) {
+interface AuthProviderProps {
+  publicRoutes: string[];
+  children: React.ReactNode;
+}
+
+function Provider({ publicRoutes, children }: AuthProviderProps) {
   const isLoading = useIsFetching();
   const { status, isAuthenticated } = useUserQuery();
   const pathname = usePathname();
   const router = useRouter();
-
-  const publicRoutes = useMemo(
-    () => [
-      "/signin",
-      "/termos-de-uso",
-      "/politica-de-privacidade",
-      "/celulas/buscar",
-    ],
-    [],
-  );
 
   const isPublicRoute = useMemo(
     () => publicRoutes.includes(pathname),
@@ -41,7 +36,7 @@ function Provider({ children }: { children: React.ReactNode }) {
 }
 
 function withSessionProvider(Component: React.ComponentType<any>) {
-  return function WithSessionProvider(props: any) {
+  return function WithSessionProvider(props: AuthProviderProps) {
     return (
       <SessionProvider>
         <Component {...props} />

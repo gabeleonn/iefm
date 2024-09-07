@@ -59,8 +59,8 @@ export default function SignIn() {
   }
 
   return (
-    <div className="relative w-full h-full min-h-screen bg-[url('./assets/bg.jpg')] bg-center bg-cover flex flex-col items-center justify-center p-4">
-      <Card className="lg:max-w-[40vw] lg:min-w-[40vw] w-full">
+    <div className="relative w-full h-full min-h-screen flex flex-col items-center justify-center p-4">
+      <Card className="lg:max-w-[40vw] lg:min-w-[40vw] w-full p-4">
         <CardHeader>
           <h2 className="font-bold text-2xl text-center">
             Finalize seu cadastro
@@ -127,10 +127,11 @@ export default function SignIn() {
             </RadioGroup>
 
             <RadioGroup
-              label="Sexo"
+              label="Igreja"
               orientation="horizontal"
               size="sm"
               defaultValue={form.organization_id}
+              value={orgOptions?.[0]?.value}
               onChange={(e) =>
                 handleFormChange("organization_id", e.target.value)
               }

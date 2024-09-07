@@ -1,10 +1,11 @@
 "use client";
 import { AuthProvider } from "@/auth/auth";
+import { Navigation } from "@/components/navigation";
 import { NextUIProvider } from "@nextui-org/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useMemo } from "react";
 
 const client = new QueryClient();
 
@@ -23,12 +24,24 @@ export function Providers({ children }: { children: React.ReactNode }) {
     window.toggleDevtools = () => setShowDevtools((old) => !old);
   }, []);
 
+  const publicRoutes = useMemo(
+    () => [
+      "/signin",
+      "/termos-de-uso",
+      "/politica-de-privacidade",
+      "/celulas/buscar",
+    ],
+    [],
+  );
+
   return (
     <QueryClientProvider client={client}>
       <NextUIProvider locale="pt-BR" navigate={router.push}>
-        <main className="min-h-screen h-full max-w-screen w-screen">
-          <AuthProvider>{children}</AuthProvider>
-        </main>
+        <AuthProvider publicRoutes={publicRoutes}>
+          <main className="min-h-screen h-full max-w-screen w-screen">
+            {children}
+          </main>
+        </AuthProvider>
       </NextUIProvider>
       <ReactQueryDevtools />
       {showDevtools && (
